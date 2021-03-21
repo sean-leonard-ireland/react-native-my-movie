@@ -1,15 +1,18 @@
-import React from 'react';
-import { Button, View, Text, StyleSheet } from 'react-native';
+import React from "react";
+import { Button, View, Text, StyleSheet } from "react-native";
 
-const DetailsScreen = () => {
-    return (
-      <View style={styles.mainView}>
-        <Text>Details Screen</Text>
-          <Button
-            title="Go to Image"
-            onPress={() => {console.log("Go to BigImageView")}}/>
-      </View>
-    )
+const DetailsScreen = ({ navigation }) => {
+  return (
+    <View style={styles.mainView}>
+      <Text>Details Screen</Text>
+      <Button
+        title="Go to Image"
+        onPress={() => {
+          navigation.navigate("Image");
+        }}
+      />
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({
@@ -17,7 +20,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-  }
+  },
 });
 
 export default DetailsScreen;
