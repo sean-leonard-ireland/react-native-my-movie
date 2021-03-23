@@ -1,7 +1,9 @@
 import React from "react";
 import { Button, View, Text, StyleSheet } from "react-native";
 
-const DetailsScreen = ({ navigation }) => {
+const DetailsScreen = ({ navigation, route }) => {
+
+  console.log(route);
   return (
     <View style={styles.mainView}>
       <Text>Details Screen</Text>
@@ -9,6 +11,12 @@ const DetailsScreen = ({ navigation }) => {
         title="Go to Image"
         onPress={() => {
           navigation.navigate("Image");
+        }}
+      />
+         <Button
+        title="More Details"
+        onPress={() => {
+          navigation.navigate("Details_to_Details");
         }}
       />
     </View>
