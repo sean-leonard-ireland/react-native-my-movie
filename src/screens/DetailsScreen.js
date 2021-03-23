@@ -19,9 +19,9 @@ const DetailsScreen = ({ navigation, route }) => {
           navigation.push("Details_to_Details");
         }}/>
       <Button
-        title="Go Back"
+        title="Go Home"
         onPress={() => {
-          navigation.goBack();
+          navigation.popToTop();
         }}
       />
     </View>
