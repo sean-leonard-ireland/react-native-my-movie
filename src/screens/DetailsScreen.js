@@ -16,7 +16,12 @@ const DetailsScreen = ({ navigation, route }) => {
          <Button
         title="More Details"
         onPress={() => {
-          navigation.navigate("Details_to_Details");
+          navigation.push("Details_to_Details");
+        }}/>
+      <Button
+        title="Go Back"
+        onPress={() => {
+          navigation.goBack();
         }}
       />
     </View>
