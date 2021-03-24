@@ -13,10 +13,34 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="App_to_Home">
-        <Stack.Screen name="App_to_Home" component={HomeScreen} />
-        <Stack.Screen name="Home_to_Details" component={DetailsScreen} />
-        <Stack.Screen name="Details_to_Details" component={DetailsScreen} />
+      <Stack.Navigator
+        initialRouteName="App_to_Home"
+        screenOptions={{
+          headerTintColor: "white",
+          headerStyle: { backgroundColor: "orange" },
+        }}
+      >
+        <Stack.Screen
+          name="App_to_Home"
+          options={{
+            title: "Movie Time",
+            headerTitleStyle: {
+              fontWeight: "bold",
+              fontSize: 30,
+            },
+          }}
+          component={HomeScreen}
+        />
+        <Stack.Screen
+          name="Home_to_Details"
+          component={DetailsScreen}
+          options={({ route }) => ({ title: route.params.movie.title })}
+        />
+        <Stack.Screen
+          name="Details_to_Details"
+          component={DetailsScreen}
+          options={({ route }) => ({ title: route.params.movie.title })}
+        />
         <Stack.Screen name="Image" component={ImageScreen} />
       </Stack.Navigator>
     </NavigationContainer>
