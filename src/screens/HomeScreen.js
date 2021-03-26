@@ -1,11 +1,10 @@
 import React from "react";
-import { Button, View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.mainView}>
-      <Button
-        title="Star Wars"
+      <TouchableOpacity
         onPress={() => {
           navigation.navigate("Home_to_Details", {
             movie: {
@@ -15,9 +14,12 @@ const HomeScreen = ({ navigation }) => {
             },
           });
         }}
-      />
-      <Button
-        title="Black Panther"
+      >
+        <View>
+          <Text>Star Wars</Text>
+        </View>
+      </TouchableOpacity>
+      <TouchableOpacity
         onPress={() => {
           navigation.navigate("Home_to_Details", {
             movie: {
@@ -27,8 +29,12 @@ const HomeScreen = ({ navigation }) => {
             },
           });
         }}
-      />
-      <Button
+      >
+        <View>
+          <Text>Black Panther</Text>
+        </View>
+      </TouchableOpacity>
+      <TouchableOpacity
         title="The Matrix"
         onPress={() => {
           navigation.navigate("Home_to_Details", {
@@ -39,7 +45,11 @@ const HomeScreen = ({ navigation }) => {
             },
           });
         }}
-      />
+      >
+        <View>
+          <Text>The Matrix</Text>
+        </View>
+      </TouchableOpacity>
     </View>
   );
 };
