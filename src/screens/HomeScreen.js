@@ -5,6 +5,7 @@ const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.mainView}>
       <TouchableOpacity
+        style={styles.touchableView}
         onPress={() => {
           navigation.navigate("Home_to_Details", {
             movie: {
@@ -16,10 +17,11 @@ const HomeScreen = ({ navigation }) => {
         }}
       >
         <View>
-          <Text>Star Wars</Text>
+          <Text style={styles.touchableText}>Star Wars</Text>
         </View>
       </TouchableOpacity>
       <TouchableOpacity
+        style={styles.touchableView}
         onPress={() => {
           navigation.navigate("Home_to_Details", {
             movie: {
@@ -31,10 +33,11 @@ const HomeScreen = ({ navigation }) => {
         }}
       >
         <View>
-          <Text>Black Panther</Text>
+          <Text style={styles.touchableText}>Black Panther</Text>
         </View>
       </TouchableOpacity>
       <TouchableOpacity
+        style={styles.touchableView}
         title="The Matrix"
         onPress={() => {
           navigation.navigate("Home_to_Details", {
@@ -47,7 +50,7 @@ const HomeScreen = ({ navigation }) => {
         }}
       >
         <View>
-          <Text>The Matrix</Text>
+          <Text style={styles.touchableText}>The Matrix</Text>
         </View>
       </TouchableOpacity>
     </View>
@@ -59,6 +62,22 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+  },
+  touchableView: {
+    marginBottom: 30,
+    width: 150,
+    height: 50,
+    alignItems: "center",
+    backgroundColor: "orange",
+    borderWidth: 5,
+    borderRadius: 10,
+  },
+  touchableText: {
+    textAlign: "center",
+    padding: 5,
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "white",
   },
 });
 

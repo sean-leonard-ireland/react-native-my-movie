@@ -13,7 +13,11 @@ const DetailsScreen = ({ navigation, route }) => {
     );
     xhr.send();
     xhr.onload = () => {
-      console.log(xhr.response);
+      if (xhr.status == 200) {
+        console.log(xhr.response);
+      } else {
+        console.log(`http bad respsonse ${xhr.status}`);
+      }
     };
   }, []);
 
