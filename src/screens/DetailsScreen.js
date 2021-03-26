@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, View, Text, StyleSheet } from "react-native";
 
 const DetailsScreen = ({ navigation, route }) => {
   //console.log(route);
   const movie = route.params.movie;
+  const [movieDetails, setMovieDetails] = useState(null);
 
   useEffect(() => {
     const xhr = new XMLHttpRequest();
@@ -14,7 +15,11 @@ const DetailsScreen = ({ navigation, route }) => {
     xhr.send();
     xhr.onload = () => {
       if (xhr.status == 200) {
-        console.log(xhr.response);
+        let response = JSON.parse(xhr.response);
+        //console.log(response.Title);
+        //console.log(response.Released);
+        //console.log(response.Plot);
+        setMovieDetails(response);
       } else {
         console.log(`http bad respsonse ${xhr.status}`);
       }
@@ -23,30 +28,9 @@ const DetailsScreen = ({ navigation, route }) => {
 
   return (
     <View style={styles.mainView}>
-      <Text style={{ fontSize: 20 }}>
-        {movie.title} ({movie.release})
-      </Text>
-      <Text style={{ fontSize: 100 }}>{movie.screenNumber}</Text>
-      <Button
-        title="Go to Image"
-        onPress={() => {
-          navigation.navigate("BigImageView");
-        }}
-      />
-      <Button
-        title="More Details"
-        onPress={() => {
-          movie.screenNumber = movie.screenNumber + 1;
-          console.log(movie);
-          navigation.push("Details_to_Details", { movie: movie });
-        }}
-      />
-      <Button
-        title="Go Back to Home"
-        onPress={() => {
-          navigation.popToTop();
-        }}
-      />
+      <Text>{movieDetails == null ? "" : movieDetails.Title}</Text>
+      <Text>{movieDetails == null ? "" : movieDetails.Released}</Text>
+      <Text>{movieDetails == null ? "" : movieDetails.Plot}</Text>
     </View>
   );
 };
